@@ -17,11 +17,11 @@ const DIR = {
 };
 
 const SRC = {
-    JS: DIR.SRC + '/assets/js/*.js',
+    JS: DIR.SRC + '/assets/js/**/*.js',
     CSS: DIR.SRC + '/assets/css',
     SASS: DIR.SRC + '/assets/sass/**/*.scss',
     HTML: DIR.SRC + '/html/*.html',
-    IMAGES: DIR.SRC + '/assets/images/*'
+    IMAGES: DIR.SRC + '/assets/images/**/*'
 };
 
 const DEST = {

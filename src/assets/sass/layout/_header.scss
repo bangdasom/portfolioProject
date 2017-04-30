@@ -1,14 +1,24 @@
 @charset "UTF-8";
 
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
     width: 250px;
-    background-color: #ddd;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
 
     .logo_area {
+        text-align: center;
+
         .logo {
             overflow: hidden;
-            width: 50px;
-            height: 50px;
+            display: block;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
             border-radius: 50%;
 
             img {
@@ -20,6 +30,73 @@
         .logo_tit {
             margin-top: 8px;
             font-size: 15px;
+        }
+    }
+
+    .gnb {
+        margin-top: 50px;
+
+        > li {
+            &.active {
+                > a {
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        right: 0;
+                        top: 10px;
+                        border: 7px solid transparent;
+                        border-bottom: 7px solid #ddd;
+                    }
+                }
+
+                > ul {
+                    border-top: 1px solid #ddd;
+                    border-bottom: 1px solid #ddd;
+
+                    a {
+                        display: block;
+                    }
+                }
+            }
+
+
+            &.no_depth {
+                > a {
+                    padding: 8px 0;
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+
+            > a {
+                display: block;
+                position: relative;
+                padding: 8px 20px 8px 0;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: 15px;
+                    border: 7px solid transparent;
+                    border-top: 7px solid #ddd;
+                }
+            }
+
+            > ul {
+                overflow: hidden;
+                height: 0;
+                transition: height .4s;
+
+                a {
+                    display: none;
+                    padding: 8px 0;
+                }
+            }
         }
     }
 }

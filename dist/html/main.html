@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/lib.css">
     <link rel="stylesheet" href="../assets/css/pages.css">
+    <script src="../assets/js/lib/jquery-3.1.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $(".gnb>li>a").on("click", function(){
+                $(this).closest("li").addClass("active").siblings().removeClass("active").children("ul").css("height", "0");
+                var lih = $(this).siblings("ul").children().length * 35;
+                $(this).siblings("ul").css("height", lih + 'px');
+            });
+        });
+    </script>
 </head>
 <body>
     <!-- HEADER -->
@@ -16,7 +27,7 @@
         </div>
 
         <ul class="gnb">
-           <li><a href="#">Depth_01</a></li>
+           <li class="no_depth"><a href="#">Depth_01</a></li>
            <li>
                <a href="#">Depth_01</a>
                <ul>
