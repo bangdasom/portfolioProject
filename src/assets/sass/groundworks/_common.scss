@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+/* 페이지네이션 */
+.pagination {
+    display: block;
+    margin: 40px auto 0;
+    font-size: 15px;
+    text-align: center;
+
+    .prev {
+        display: inline-block;
+        padding: 10px 15px;
+        vertical-align: middle;
+
+        a {
+            overflow: hidden;
+            position: relative;
+            display: block;
+            width: 13px;
+            height: 13px;
+            border-top: 2px solid #ddd;
+            border-left: 2px solid #ddd;
+            text-indent: -9999px;
+            transform: rotate(-45deg);
+        }
+    }
+
+    .num {
+        display: inline-block;
+        vertical-align: middle;
+
+        a {
+            display: inline-block;
+            position: relative;
+            padding: 10px 15px;
+            text-align: center;
+
+            + a {
+                margin-left: 10px;
+            }
+
+            &::after {
+                content: " ";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -2px;
+                margin-left: -2px;
+                display: block;
+                width: 4px;
+                height: 4px;
+                border: 1px solid transparent;
+                border-radius: 50%;
+                transform: rotate(0deg);
+            }
+
+            &.active,
+            &:hover,
+            &:focus {
+                font-weight: 700;
+
+                &::after {
+                    margin-top: -15px;
+                    margin-left: -15px;
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid #ccc;
+                    border-radius: 0;
+                    transform: rotate(405deg);
+                    transition: all .4s, rotate .4s;
+                }
+            }
+        }
+    }
+
+    .next {
+        display: inline-block;
+        padding: 10px 15px;
+        vertical-align: middle;
+
+        a {
+            overflow: hidden;
+            position: relative;
+            display: block;
+            width: 13px;
+            height: 13px;
+            border-top: 2px solid #ddd;
+            border-right: 2px solid #ddd;
+            text-indent: -9999px;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+
+/* 버튼 */
+.btn_wrap {
+    margin-top: 50px;
+    text-align: right;
+}
+.btn {
+    display: inline-block;
+    min-width: 90px;
+    height: 40px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    /*box-shadow: 0 1px 1px #ddd;*/
+    color: #333;
+    font-size: 15px;
+    text-align: center;
+    text-indent: 0;
+    
+    &:hover,
+    &:focus {
+        border: 1px solid #ccc;
+        background-color: #ccc;
+        color: #fff;
+    }
+}
