@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CREATIVESOMII</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/lib.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+    <script src="../assets/js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../assets/js/lib/jquery-ui.min.js"></script>
+    <script src="../assets/js/common.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            /* 메뉴Sortable */
+            $( ".depth01_group .list_area" ).sortable();
+            $( ".depth02_group .list_area" ).sortable();
+
+            /* 메뉴선택시 */
+            $(document).on("click", ".menu_area .list_area a", function(){
+                $(this).parent("li").addClass("active").siblings("li").removeClass("active");
+            });
+
+            /* 메뉴추가시 */
+            $(document).on("click", ".util .util_btn.add", function(){
+                var txt = prompt('메뉴명을 입력하세요');
+                var item = "<li><a href='#'>"+ txt + "</a></li>";
+
+                $(this).closest(".util").siblings(".list_area").append(item);
+            });
+
+            /* 메뉴삭제시 */
+            $(document).on("click", ".util .util_btn.del", function (){
+                var $hasAc = $(this).closest(".util").siblings(".list_area").children("li.active");
+                var $menuName = $(this).closest(".util").siblings(".list_area").children("li.active").find("a").text();
+
+                console.log($hasAc);
+                if($hasAc.length == 0) {
+                    alert("메뉴를 선택해주세요");
+                }else{
+                    var flag = confirm($menuName+"을 삭제하시겠습니까?");
+
+                    if(flag) {
+                        $hasAc.remove();
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- HEADER -->
+    <div id="header" class="header">
+        <div class="logo_area">
+            <div class="logo"><img src="../assets/images/common/logo.jpg" alt="logo"></div>
+            <h1 class="logo_tit">Front-End Dev.</h1>
+        </div>
+
+        <button class="gnb_trigger" type="button">
+                <span class="trigger_group">
+                    <span class="trigger_bar01"></span>
+                    <span class="trigger_bar02"></span>
+                    <span class="trigger_bar03"></span>
+                </span>
+        </button>
+        <ul class="gnb">
+            <li class="no_depth"><a href="#">Depth_01</a></li>
+            <li>
+                <a href="#">Depth_01</a>
+                <ul>
+                    <li class="active"><a href="#">Depth_02</a></li>
+                    <li><a href="#">Depth_02</a></li>
+                    <li><a href="#">Depth_02</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Depth_01</a>
+                <ul>
+                    <li><a href="#">Depth_02</a></li>
+                    <li><a href="#">Depth_02</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- //HEADER-->
+
+    <!-- CONTAINER -->
+    <div id="container" class="container">
+        <div class="admin_page">
+            <h2>ADMIN</h2>
+            <h3>MENU PANEL</h3>
+            <div class="menu_area">
+                <div class="depth01_group">
+                    <div class="title">1DEPTH</div>
+                    <ul class="list_area">
+                        <li class="active"><a href="#">Menu Name 01</a></li>
+                        <li><a href="#">Menu Name 02</a></li>
+                        <li><a href="#">Menu Name 03</a></li>
+                    </ul>
+                    <ul class="util">
+                        <li><button class="util_btn add" type="button">+</button></li>
+                        <li><button class="util_btn del" type="button">-</button></li>
+                    </ul>
+                </div>
+                <div class="depth02_group">
+                    <div class="title">2DEPTH</div>
+                    <ul class="list_area">
+                        <li><a href="#">Menu Name 01</a></li>
+                        <li><a href="#">Menu Name 02</a></li>
+                        <li><a href="#">Menu Name 03</a></li>
+                    </ul>
+                    <ul class="util">
+                        <li><button class="util_btn add" type="button">+</button></li>
+                        <li><button class="util_btn del" type="button">-</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //CONTAINER-->
+</body>
+</html>
