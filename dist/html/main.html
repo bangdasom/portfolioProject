@@ -2,21 +2,13 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <title>CREATIVESOMII</title>
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/lib.css">
     <link rel="stylesheet" href="../assets/css/pages.css">
     <script src="../assets/js/lib/jquery-3.1.1.min.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            $(".gnb>li>a").on("click", function(){
-                $(this).closest("li").addClass("active").siblings().removeClass("active").children("ul").css("height", "0");
-                var lih = $(this).siblings("ul").children().length * 35;
-                $(this).siblings("ul").css("height", lih + 'px');
-            });
-        });
-    </script>
+    <script src="../assets/js/common.js"></script>
 </head>
 <body>
     <!-- HEADER -->
@@ -26,12 +18,19 @@
             <h1 class="logo_tit">Front-End Dev.</h1>
         </div>
 
+        <button class="gnb_trigger" type="button">
+            <span class="trigger_group">
+                <span class="trigger_bar01"></span>
+                <span class="trigger_bar02"></span>
+                <span class="trigger_bar03"></span>
+            </span>
+        </button>
         <ul class="gnb">
            <li class="no_depth"><a href="#">Depth_01</a></li>
            <li>
                <a href="#">Depth_01</a>
                <ul>
-                  <li><a href="#">Depth_02</a></li>
+                  <li class="active"><a href="#">Depth_02</a></li>
                   <li><a href="#">Depth_02</a></li>
                   <li><a href="#">Depth_02</a></li>
                </ul>

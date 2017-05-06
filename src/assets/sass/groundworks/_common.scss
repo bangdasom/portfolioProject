@@ -27,12 +27,14 @@
 
     .num {
         display: inline-block;
+        font-size: 0;
         vertical-align: middle;
 
         a {
             display: inline-block;
             position: relative;
             padding: 10px 15px;
+            font-size: 14px;
             text-align: center;
 
             + a {
@@ -55,16 +57,16 @@
             }
 
             &.active,
-            &:hover,
-            &:focus {
+            &:hover {
+                color: $point-color;
                 font-weight: 700;
 
                 &::after {
-                    margin-top: -15px;
+                    margin-top: -16px;
                     margin-left: -15px;
                     width: 30px;
                     height: 30px;
-                    border: 1px solid #ccc;
+                    border: 1px solid $point-color;
                     border-radius: 0;
                     transform: rotate(405deg);
                     transition: all .4s, rotate .4s;
