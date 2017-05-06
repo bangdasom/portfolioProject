@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+.admin_page {
+    h2 {
+        margin-bottom: 30px;
+        border-bottom: 1px solid #333;
+        color: #333;
+        font-size: 24px;
+    }
+
+    h3 {
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    .menu_area {
+        display: flex;
+        margin: -10px;
+
+        .depth01_group {
+            position: relative;
+            width: 50%;
+            min-height: 300px;
+            margin: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .depth02_group {
+            position: relative;
+            width: 50%;
+            min-height: 300px;
+            margin: 10px;
+            border: 1px solid #ddd;
+        }
+        
+        .title {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            background-color: #ccc;
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .list_area {
+            overflow-y: auto;
+            height: 350px;
+
+            li {
+                position: relative;
+                padding: 10px 10px 10px 30px;
+
+                &.active {
+                    > a {
+                        color: #333;
+                        font-weight: 700;
+
+                        &::before {
+                            top: 14px;
+                            left: 12px;
+                            width: 8px;
+                            height: 8px;
+                        }
+                    }
+                }
+
+                > a {
+                    display: block;
+                    width: 100%;
+
+                    &::before {
+                        content: " ";
+                        position: absolute;
+                        top: 18px;
+                        left: 16px;
+                        width: 0;
+                        height: 0;
+                        border-radius: 50%;
+                        background-color: #b947ff;
+                        transition: top 0.4s, left 0.4s, width 0.4s, height 0.4s;
+                    }
+                }
+            }
+        }
+
+        .util {
+            overflow: hidden;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            li {
+                float: left;
+                width: 20px;
+                height: 20px;
+
+                + li {
+                    margin-left: 10px;
+                }
+            }
+
+            .util_btn {
+                display: block;
+                width: 100%;
+                height: 100%;
+                color: #fff;
+                font-size: 25px;
+                line-height: 0;
+            }
+        }
+    }
+}
