@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.login-container {
+    width: 960px;
+    padding: 0;
+    margin: 0 auto;
+}
+.login-area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    transform: translate(-50%, -50%);
+
+    h1 {
+        margin-bottom: 30px;
+        color: #666;
+        text-align: center;
+        font-weight: 700;
+        font-size: 40px;
+    }
+
+    .id, .pw {
+        position: relative;
+        padding: 18px 0;
+    }
+
+    label {
+        display: block;
+        position: absolute;
+        top: 28px;
+        left: 20px;
+        font-size: 14px;
+        transition: all .3s cubic-bezier(0.57,-0.32, 1, 1);
+    }
+
+    input {
+        width: 100%;
+        padding: 10px 20px;
+        border: 0;
+        border-bottom: 1px solid #333;
+
+        &.focus {
+            + label {
+                top: -7px;
+                left: 0;
+                padding: 1px 20px;
+                background-color: #ccc;
+                border-radius: 20px;
+                color: #fff;
+            }
+        }
+    }
+    
+    .login-btn {
+        text-align: center;
+    }
+}

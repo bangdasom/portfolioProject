@@ -21,14 +21,16 @@ const SRC = {
     CSS: DIR.SRC + '/assets/css',
     SASS: DIR.SRC + '/assets/sass/**/*.scss',
     HTML: DIR.SRC + '/html/*.html',
-    IMAGES: DIR.SRC + '/assets/images/**/*'
+    IMAGES: DIR.SRC + '/assets/images/**/*',
+    FONTS: DIR.SRC + '/assets/fonts/*'
 };
 
 const DEST = {
     JS: DIR.DEST + '/assets/js',
     CSS: DIR.DEST + '/assets/css',
     HTML: DIR.DEST + '/html',
-    IMAGES: DIR.DEST + '/assets/images'
+    IMAGES: DIR.DEST + '/assets/images',
+    FONTS: DIR.DEST + '/assets/fonts'
 };
 
 gulp.task('js', () => {
@@ -74,6 +76,12 @@ gulp.task('images', () => {
         .pipe(browserSync.reload({stream:true}));
 });
 
+gulp.task('fonts', () => {
+    return gulp.src(SRC.FONTS)
+        .pipe(gulp.dest(DEST.FONTS))
+        .pipe(browserSync.reload({stream:true}));
+});
+
 gulp.task('clean', () => {
     return del.sync([DIR.DEST]);
 });
@@ -94,6 +102,6 @@ gulp.task('server', () => {
     });
 });
 
-gulp.task('default', ['clean', 'js', 'sass', 'index', 'html', 'images', 'watch', 'server'], () => {
+gulp.task('default', ['clean', 'js', 'sass', 'index', 'html', 'images', 'fonts', 'watch', 'server'], () => {
     gutil.log('Gulp is running');
 });
