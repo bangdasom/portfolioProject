@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
 .list_page {
+    .btn_area {
+        text-align: right;
+    }
     .blog_list {
         .item {
             +.item {
